@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    </head>
+	<body th:extends="@{/layout}">
+	    <h1>Test Page</h1>
+		<p>
+			You have landed on the test page
+		</p>
+		<div th:insert="fragments/footer :: copy"></div>
+	</body>
+</html>

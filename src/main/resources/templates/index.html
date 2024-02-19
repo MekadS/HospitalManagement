@@ -3,45 +3,43 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <title>My Spring Boot App</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
     <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 </head>
 <body>
-	<div align = "center">
-		<h2>Spring Boot CRUD Hospital Management System : Department</h2>		
-	</div>
-	<div>
-		<div align = "right" >           
-			<h3><a  th:href="@{'/create'}">Add new</a></h3>     
+		<div align = "center">
+			<h2>Spring Boot CRUD Hospital Management System</h2>		
 		</div>
-		<div class="col-sm-20" >
-			<div class="panel-body" align = "center" >
-				<table class="table">
-					<thead class="thead-dark">
-						<tr>
-							<th>Department ID</th>
-							<th>Department Name</th>
-							<th>Location</th>
-							<th>Edit</th>
-							<th>Delete</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr  th:each="Department : ${listDepartment }">
-							<td th:text="${Department.id}">Department ID</td>
-							<td th:text="${Department.Departmentname}">DepartmentName</td>
-							<td th:text="${Department.location}">Location</td>
-							<td>
-							    <a th:href="@{'/edit/' + ${Department.id}}">Edit</a>
-							</td>                                
-							<td>
-							    <a th:href="@{'/delete/' + ${Department.id}}">Delete</a>
-							</td>            
-						</tr> 		
-					</tbody>
-				</table>	                    
+		<div>
+			<div align = "center" class="card mx-auto my-auto mb-5">    
+				<div class="card-body">    
+					<table class="table-info">
+						<thead>
+							<tr>
+								<th>Entity</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Departments</td>
+								<td><a  th:href="@{'/department/list'}">List Departments</a></td>
+							</tr>
+						<tbody>
+							<tr>
+								<td>Doctors</td>
+								<td><a  th:href="@{'/department/list'}">List Doctors</a></td>
+							</tr>
+						<tbody>
+							<tr>
+								<td>Patients</td>
+								<td><a  th:href="@{'/department/list'}">List Patients</a></td>
+							</tr>
+						</tbody>
+					</table>  
+				</div>		
 			</div>		
 		</div>
-	</div>
 </body>
 </html>

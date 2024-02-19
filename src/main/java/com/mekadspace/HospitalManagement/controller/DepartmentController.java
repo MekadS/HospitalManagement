@@ -20,38 +20,43 @@ public class DepartmentController {
     
      @Autowired
         private DepartmentService service;
-
-        @GetMapping("/")
+	     
+	     @GetMapping("/testpage")
+	     public String testPage(Model model) {
+	         return "/testpage";
+	     }
+     
+     	@GetMapping("/department/list")
         public String viewHomePage(Model model) {
             List<Department> listDepartment = service.listAll();
             model.addAttribute("listDepartment", listDepartment);
-            System.out.print("Get / ");    
-            return "index";
+            System.out.println("••• Getting Departments List •••");    
+            return "/department/list";
         }
 
-        @GetMapping("/create")
+        @GetMapping("/department/create")
         public String add(Model model) {
             model.addAttribute("Department", new Department());
-            return "create";
+            return "/department/create";
         }
 
-        @RequestMapping(value = "/save", method = RequestMethod.POST)
-        public String saveDepartment(@ModelAttribute("Department") Department std) {
-            service.save(std);
-            return "redirect:/";
+        @RequestMapping(value = "/department/save", method = RequestMethod.POST)
+        public String saveDepartment(@ModelAttribute("Department") Department department) {
+            service.save(department);
+            return "redirect:/department/list";
         }
 
-        @RequestMapping("/edit/{id}")
+        @RequestMapping("/department/edit/{id}")
         public ModelAndView showEditDepartmentPage(@PathVariable(name = "id") int id) {
-            ModelAndView mav = new ModelAndView("new");
-            Department std = service.get(id);
-            mav.addObject("Department", std);
+            ModelAndView mav = new ModelAndView("/department/create");
+            Department department = service.get(id);
+            mav.addObject("Department", department);
             return mav;
             
         }
-        @RequestMapping("/delete/{id}")
+        @RequestMapping("/department/delete/{id}")
         public String deleteDepartment(@PathVariable(name = "id") int id) {
             service.delete(id);
-            return "redirect:/";
+            return "redirect:/department/list";
         }
 }

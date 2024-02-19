@@ -8,5 +8,5 @@ import com.mekadspace.HospitalManagement.model.Department;
 
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Long> {
-
+	
 }

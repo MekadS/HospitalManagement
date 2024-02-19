@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 //import javax.persistence.Id;	//OLD package
 
 @Entity
@@ -11,15 +12,22 @@ public class Department {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String Departmentname;
+    private String departmentname;
     private String location;
+
+//    @FakeFaker("name().fullName()")
+//    private String departmentname;
+//
+//    @FakeFaker("name().location()")
+//    private String location;
+    
     public Department() {
 
     }
     public Department(Long id, String Departmentname, String location) {
     
         this.id = id;
-        this.Departmentname = Departmentname;
+        this.departmentname = Departmentname;
         this.location = location;
     }
     public Long getId() {
@@ -29,10 +37,10 @@ public class Department {
         this.id = id;
     }
     public String getDepartmentname() {
-        return Departmentname;
+        return departmentname;
     }
     public void setDepartmentname(String Departmentname) {
-        this.Departmentname = Departmentname;
+        this.departmentname = Departmentname;
     }
     public String getLocation() {
         return location;

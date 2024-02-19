@@ -11,22 +11,29 @@ import com.mekadspace.HospitalManagement.repository.DepartmentRepository;
 public class DepartmentService {
     
     @Autowired
-    private DepartmentRepository repo;
+    private DepartmentRepository departmentRepo;
+    
+
+    public void generateFakeDepartment(int count) {
+	    for (int i = 0; i < count; i++) {
+	    	departmentRepo.save(new Department());
+	    }
+	}
     
     public List<Department> listAll() {
-        return repo.findAll();
+        return departmentRepo.findAll();
     }
      
     public void save(Department dept) {
-        repo.save(dept);
+        departmentRepo.save(dept);
     }
      
     public Department get(long id) {
-        return repo.findById(id).get();
+        return departmentRepo.findById(id).get();
     }
      
     public void delete(long id) {
-        repo.deleteById(id);
+        departmentRepo.deleteById(id);
     }
 
 }
