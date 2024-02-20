@@ -14,11 +14,11 @@ public class DepartmentService {
     private DepartmentRepository departmentRepo;
     
 
-    public void generateFakeDepartment(int count) {
-	    for (int i = 0; i < count; i++) {
-	    	departmentRepo.save(new Department());
-	    }
-	}
+//    public void generateFakeDepartment(int count) {
+//	    for (int i = 0; i < count; i++) {
+//	    	departmentRepo.save(new Department());
+//	    }
+//	}
     
     public List<Department> listAll() {
         return departmentRepo.findAll();

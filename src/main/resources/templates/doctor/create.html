@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Doctor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body style="background-image: url('/images/bg_healthcare.jpg'); background-size: cover; 
+				background-repeat: no-repeat; background-attachment: fixed;">
+	<div align="center">
+		<div class="mt-5">
+			<h1>Hospital Management System</h1>		
+			<h3>working with Spring Boot CRUD</h3>		
+		</div>
+	</div>
+	<div align="center" class="mt-5">
+		<div class="col-sm-5">
+			<div class="card flex mx-5 width-70">
+				<div class="card-body">
+					<form action="#" th:action="@{/doctor/save}" th:object="${Doctor}" method="post">	      
+						<table class="table table-striped">
+							<thead class="thead-dark">
+								<tr>
+									<th colspan="2" align="center">Create New Doctor</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<label class="form-label" >Doctor Name</label>
+									</td>
+									<td>
+									    <input type="hidden" th:field="*{id}" />
+									    <input type="text" th:field="*{Doctorname}" class="form-control" placeholder="Doctor Name" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label class="form-label" >Department</label>
+									</td>
+									<td>
+										<div class="dropdown">
+										  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+										    Select department
+										  </button>
+										  <ul class="dropdown-menu" th:each="Department : ${listDepartment }">
+										    <li th:value="${Department.id}"
+										        th:text="${Department.Departmentname}">Hello</li>
+										  </ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="dropdown">
+										  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+										  	Button
+										  </button>
+										  <ul class="dropdown-menu">
+										    <li><a class="dropdown-item" href="#">Action</a></li>
+										    <li><a class="dropdown-item" href="#">Another action</a></li>
+										    <li><a class="dropdown-item" href="#">Something else here</a></li>
+										  </ul>
+										</div>
+									</td>
+<!-- 									</td>
+									<td>
+										<select>
+											<option th:each="Department : ${listDepartment }"
+										        th:value="${Department.id}"
+										        th:text="${Department.Departmentname}">th:text="${Department.Departmentname}"</option>
+										</select>
+									</td> -->
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>						
+									<td>
+										<a th:href="@{'/doctor/list'}" class="btn btn-secondary">Back</a>
+									</td>
+									<td>
+										<button type="submit" class="btn btn-success">Save</button>
+									</td>
+								</tr>
+							</tfoot>
+						</table> 
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
