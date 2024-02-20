@@ -7,37 +7,57 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
     <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 </head>
-<body>
-	<div class="my-auto">
-		<div align="center">
-			<h1>Create New Department</h1>
-			<br>
-			<div class="col-sm-6">
-				<form action="#" th:action="@{/department/save}" th:object="${Department}" method="post">	      
-					<div align="left" class="card bg-primary-subtle">
-						<table class="mx-auto col-sm-8">
-							<tr>
-								<td>
-									<label class="form-label" >Department Name</label>
-								    <input type="hidden" th:field="*{id}" />
-								    <input type="text" th:field="*{Departmentname}" class="form-control" placeholder="Department Name" />
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label class="form-label" >Location</label>
-									<input type="text" th:field="*{location}" class="form-control" placeholder="location" />
-								</td>
-							</tr>
-							<tr>						
-								<td colspan="2">
-									<a th:href="@{'/department/list'}" class="btn btn-secondary">Back</a>
-								</td>
-								<td colspan="2"><button type="submit" class="btn btn-success">Save</button> </td>
-							</tr>
-						</table>
-					</div> 
-				</form>
+<body style="background-image: url('/images/bg_healthcare.jpg'); background-size: cover; 
+				background-repeat: no-repeat; background-attachment: fixed;">
+	<div align="center">
+		<div class="mt-5">
+			<h1>Hospital Management System</h1>		
+			<h3>working with Spring Boot CRUD</h3>		
+		</div>
+	</div>
+	<div align="center" class="mt-5">
+		<div class="col-sm-5">
+			<div class="card flex mx-5 width-70">
+				<div class="card-body">
+					<form action="#" th:action="@{/department/save}" th:object="${Department}" method="post">	      
+						<table class="table table-striped">
+							<thead class="thead-dark">
+								<tr>
+									<th colspan="2" align="center">Create New Department</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<label class="form-label" >Department Name</label>
+									</td>
+									<td>
+									    <input type="hidden" th:field="*{id}" />
+									    <input type="text" th:field="*{Departmentname}" class="form-control" placeholder="Department Name" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label class="form-label" >Location</label>
+									</td>
+									<td>
+										<input type="text" th:field="*{location}" class="form-control" placeholder="Location" />
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>						
+									<td>
+										<a th:href="@{'/department/list'}" class="btn btn-secondary">Back</a>
+									</td>
+									<td>
+										<button type="submit" class="btn btn-success">Save</button>
+									</td>
+								</tr>
+							</tfoot>
+						</table> 
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>

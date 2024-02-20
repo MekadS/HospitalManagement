@@ -7,39 +7,43 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
     <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 </head>
-<body>
+<body style="background-image: url('/images/bg_healthcare.jpg'); background-size: cover; 
+				background-repeat: no-repeat; background-attachment: fixed;">
 		<div align = "center">
-			<h2>Spring Boot CRUD Hospital Management System</h2>		
+			<div class="mt-5">
+				<h1>Hospital Management System</h1>		
+				<h3>working with Spring Boot CRUD</h3>		
+			</div>
 		</div>
-		<div>
-			<div align = "center" class="card mx-auto my-auto mb-5">    
-				<div class="card-body">    
-					<table class="table-info">
-						<thead>
-							<tr>
-								<th>Entity</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Departments</td>
-								<td><a  th:href="@{'/department/list'}">List Departments</a></td>
-							</tr>
-						<tbody>
-							<tr>
-								<td>Doctors</td>
-								<td><a  th:href="@{'/department/list'}">List Doctors</a></td>
-							</tr>
-						<tbody>
-							<tr>
-								<td>Patients</td>
-								<td><a  th:href="@{'/department/list'}">List Patients</a></td>
-							</tr>
-						</tbody>
-					</table>  
+		<div align = "center" class="mt-5">    
+			<div class="col-sm-5">
+				<div class="card flex mx-5 width-70">
+					<div class="card-body">
+						<table class="table table-striped">
+							<thead class="text-center thead-dark">
+								<tr>
+									<th>Entity</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody class="table table-striped table-group-divider text-center">
+								<tr>
+									<td>Departments</td>
+									<td><a  th:href="@{'/department/list'}">List Departments</a></td>
+								</tr>
+								<tr>
+									<td>Doctors</td>
+									<td><a  th:href="@{'/department/list'}">List Doctors</a></td>
+								</tr>
+								<tr>
+									<td>Patients</td>
+									<td><a  th:href="@{'/department/list'}">List Patients</a></td>
+								</tr>
+							</tbody>
+						</table>  
+					</div>		
 				</div>		
 			</div>		
-		</div>
+		</div>		
 </body>
 </html>

@@ -6,23 +6,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
     <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 </head>
-<body>
+<body style="background-image: url('/images/bg_healthcare.jpg'); background-size: cover; 
+				background-repeat: no-repeat; background-attachment: fixed;">
 	<div align = "center">
-		<h2>Spring Boot CRUD Hospital Management System : Department</h2>		
+		<div class="mt-5">
+			<h1>Hospital Management System</h1>		
+			<h3>working with Spring Boot CRUD</h3>		
+		</div>
 	</div>
-	<div>
-		<div align = "center" > 
-			<div class="justify justify-content-between">
-				<span><a  th:href="@{'/index'}">HOME</a></span>  
-				<span><a  th:href="@{'/department/create'}">Add new</a></span>     
-			</div>
-			
-			<div class="col-sm-8" >
-				<div class="panel-body" align = "center" >
-					<table class="table">
+	<div align = "center" class="mt-5">    
+		<div class = "col-sm-8" > 
+			<div class="card flex mx-5 width-70">
+				<div class="card-body">
+					<div align="left">
+						<a th:href="@{'/index'}"><button class="btn btn-primary">Home</button></a>
+					</div>
+					<table class="table table-striped mt-2">
 						<thead class="thead-dark">
 							<tr>
-								<th>Department ID</th>
+								<th class="text-center">Department ID</th>
 								<th>Department Name</th>
 								<th>Location</th>
 								<th>Edit</th>
@@ -31,7 +33,7 @@
 						</thead>
 						<tbody>
 							<tr  th:each="Department : ${listDepartment }">
-								<td th:text="${Department.id}">Department ID</td>
+								<td th:text="${Department.id}" class="text-center">Department ID</td>
 								<td th:text="${Department.Departmentname}">DepartmentName</td>
 								<td th:text="${Department.location}">Location</td>
 								<td>
@@ -42,7 +44,10 @@
 								</td>            
 							</tr> 		
 						</tbody>
-					</table>	                    
+					</table>
+					<div>
+						<a th:href="@{'/department/create'}"><button class="btn btn-outline-success">Add New</button></a>
+					</div>	                    
 				</div>		
 			</div>
 		</div>
