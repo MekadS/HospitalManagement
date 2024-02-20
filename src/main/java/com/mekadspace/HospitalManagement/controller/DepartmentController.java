@@ -15,8 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mekadspace.HospitalManagement.model.Department;
 import com.mekadspace.HospitalManagement.service.DepartmentService;
 
-//TEST GITHUB PUSH 20240220
-
 @Controller
 public class DepartmentController {
     
