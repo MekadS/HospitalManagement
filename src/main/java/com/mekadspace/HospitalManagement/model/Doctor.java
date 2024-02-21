@@ -1,6 +1,6 @@
 package com.mekadspace.HospitalManagement.model;
 
-import jakarta.persistence.Column;
+//import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,9 +16,10 @@ public class Doctor {
 	private Long id;
 	private String doctorname;
 
-	@ManyToOne
-//    @JoinColumn(name = "department_id")
+//  @JoinColumn(name = "department_id")
 //	@Column(insertable=false, updatable=false)
+	
+	@ManyToOne
 	@JoinColumn(name = "department.id")
     private Department department;
 	

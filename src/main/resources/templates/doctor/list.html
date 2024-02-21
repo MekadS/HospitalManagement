@@ -32,10 +32,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr  th:each="Doctor : ${listDoctor }">
+							<tr  th:each="Doctor : ${listDoctor}">
 								<td th:text="${Doctor.id}" class="text-center">Doctor ID</td>
-								<td th:text="${Doctor.Doctorname}">DoctorName</td>
-								<td th:text="${Doctor.department}">Department</td>
+								<td th:text="${Doctor.doctorname}">DoctorName</td>
+								<td th:text="${Doctor.department.getDepartmentname()}">Department</td>
 								<td>
 								    <a th:href="@{'/doctor/edit/' + ${Doctor.id}}">Edit</a>
 								</td>                                

@@ -14,44 +14,54 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mekadspace.HospitalManagement.model.Doctor;
 import com.mekadspace.HospitalManagement.service.DoctorService;
+import com.mekadspace.HospitalManagement.service.DepartmentService;
+//import com.mekadspace.HospitalManagement.model.Department;
 
 @Controller
 public class DoctorController {
     
-     @Autowired
-        private DoctorService service;
-	     
-     	@GetMapping("/doctor/list")
-        public String viewHomePage(Model model) {
-            List<Doctor> listDoctor = service.listAll();
-            model.addAttribute("listDoctor", listDoctor);
-            System.out.println("••• Getting Doctors List •••");    
-            return "/doctor/list";
-        }
-
-        @GetMapping("/doctor/create")
-        public String add(Model model) {
-            model.addAttribute("Doctor", new Doctor());
-            return "/doctor/create";
-        }
-
-        @RequestMapping(value = "/doctor/save", method = RequestMethod.POST)
-        public String saveDoctor(@ModelAttribute("Doctor") Doctor Doctor) {
-            service.save(Doctor);
-            return "redirect:/doctor/list";
-        }
-
-        @RequestMapping("/doctor/edit/{id}")
-        public ModelAndView showEditDoctorPage(@PathVariable(name = "id") int id) {
-            ModelAndView mav = new ModelAndView("/doctor/create");
-            Doctor Doctor = service.get(id);
-            mav.addObject("Doctor", Doctor);
-            return mav;
-            
-        }
-        @RequestMapping("/doctor/delete/{id}")
-        public String deleteDoctor(@PathVariable(name = "id") int id) {
-            service.delete(id);
-            return "redirect:/doctor/list";
-        }
+	//IMPORTANT: ADD @Autowired FOR EACH SERVICE
+	@Autowired
+		private DoctorService doctorService;
+	@Autowired
+		private DepartmentService departmentService;
+	 
+	@GetMapping("/doctor/list")
+	public String viewHomePage(Model doctor) {
+	    List<Doctor> listDoctor = doctorService.listAll();
+	    doctor.addAttribute("listDoctor", listDoctor);
+	    System.out.println("••• Getting Doctors List •••");    
+	    return "/doctor/list";
+	}
+	
+	@GetMapping("/doctor/create")
+	public String add(Model model) {
+	    model.addAttribute("Doctor", new Doctor());
+	    
+	    // IMPORTANT: TO SHOW DEPARTMENTS IN A DROPDOWN MENU
+	    List<com.mekadspace.HospitalManagement.model.Department> depts = departmentService.listAll();
+	    model.addAttribute("depts", depts);
+	    
+	    return "/doctor/create";
+	}
+	
+	@RequestMapping(value = "/doctor/save", method = RequestMethod.POST)
+	public String saveDoctor(@ModelAttribute("Doctor") Doctor Doctor) {
+	    doctorService.save(Doctor);
+	    return "redirect:/doctor/list";
+	}
+	
+	@RequestMapping("/doctor/edit/{id}")
+	public ModelAndView showEditDoctorPage(@PathVariable(name = "id") int id) {
+	    ModelAndView mav = new ModelAndView("/doctor/create");
+	    Doctor Doctor = doctorService.get(id);
+	    mav.addObject("Doctor", Doctor);
+	    return mav;
+	}
+	
+	@RequestMapping("/doctor/delete/{id}")
+	public String deleteDoctor(@PathVariable(name = "id") int id) {
+	    doctorService.delete(id);
+	    return "redirect:/doctor/list";
+	}
 }
