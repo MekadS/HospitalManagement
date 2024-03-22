@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
-    <title>Create New Doctor</title>
+    <title>Register New Doctor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
     <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 </head>
@@ -23,7 +23,7 @@
 						<table class="table table-striped">
 							<thead class="thead-dark">
 								<tr>
-									<th colspan="2" align="center">Create New Doctor</th>
+									<th colspan="2" align="center">Register New Doctor</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -38,6 +38,22 @@
 								</tr>
 								<tr>
 									<td>
+										<label class="form-label" >Email</label>
+									</td>
+									<td>
+									    <input type="text" th:field="*{email}" class="form-control" placeholder="Email" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label class="form-label" >Phone Number</label>
+									</td>
+									<td>
+									    <input type="tel" th:field="*{phonenumber}" class="form-control" placeholder="Phone Number" />
+									</td>
+								</tr>
+								<tr>
+									<td>
 										<label class="form-label" >Department</label>
 									</td>
 									<td>
@@ -47,6 +63,21 @@
 									        		th:text="${Department.getDepartmentname()}">
 									        </option>
 									    </select>
+									</td>
+								</tr>
+								<tr>
+									<td>Exists</td>
+									<td th:if="${Doctor.id != null}"
+										th:field="${Doctor.Department.id}"
+										th:text="${Doctor.Department.departmentname}">
+									</td>
+								</tr>
+								<tr>
+									<td>Ternary</td>
+									<td th:text="${Doctor.Department.id == null} 
+											? 'No department assigned'
+											: ${Doctor.Department.departmentname}"
+										th:field="${Doctor.Department.id}">
 									</td>
 								</tr>
 							</tbody>

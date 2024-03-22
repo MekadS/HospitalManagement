@@ -25,6 +25,7 @@ public class DoctorService {
     }
      
     public void save(Doctor doc) {
+    	System.out.println(doc.toString());
         DoctorRepo.save(doc);
     }
      

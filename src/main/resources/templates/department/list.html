@@ -18,8 +18,9 @@
 		<div class = "col-sm-8" > 
 			<div class="card flex mx-5 width-70">
 				<div class="card-body">
-					<div align="left">
+					<div class="d-flex justify justify-content-between">
 						<a th:href="@{'/index'}"><button class="btn btn-primary">Home</button></a>
+						<a th:href="@{'/department/create'}"><button class="btn btn-outline-success">Add New</button></a>
 					</div>
 					<table class="table table-striped mt-2">
 						<thead class="thead-dark">
@@ -45,9 +46,6 @@
 							</tr> 		
 						</tbody>
 					</table>
-					<div>
-						<a th:href="@{'/department/create'}"><button class="btn btn-outline-success">Add New</button></a>
-					</div>	                    
 				</div>		
 			</div>
 		</div>
